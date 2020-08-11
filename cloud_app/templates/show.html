@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+
+    {% csrf_token %}
+
+</head>
+<body>
+<p> Users details</p>
+
+<p>{{ form }}</p>
+
+{% for UsersData in form %}
+
+      <p>{{ UsersData.uname }}</p>
+       <p>{{ UsersData.uemail }}</p>
+
+{% endfor %}
+
+</body>
+</html>

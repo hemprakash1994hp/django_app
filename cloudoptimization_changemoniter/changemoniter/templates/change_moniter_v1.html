@@ -1,0 +1,247 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+{% endblock %}
+
+{% block nav %}
+    {% include "base/leftpanel_2.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2><span><i class="fa fa-amazon">&nbsp;</i>My Account</span> / <span style="color: #1ab394">Security</span></h2>
+            </div>
+                <div class="col-sm-8">
+                    <div class="ibox-content">
+                        <label class="control-label"></label>
+                        <form method="get">
+
+                        <select name="region-name" id="regions"  style="width:350px;" tabindex="4" multiple="multiple">
+                            <option value="Canada (Central)">Canada (Central)</option>
+                            <option value="US East (N. Virginia)">US East (N. Virginia)</option>
+                            <option value="Asia Pacific (Seoul)">Asia Pacific (Seoul)</option>
+                            <option value="US East (Ohio)">US East (Ohio)</option>
+                            <option value="Asia Pacific (Tokyo)">Asia Pacific (Tokyo)</option>
+                            <option value="Asia Pacific (Mumbai)">Asia Pacific (Mumbai)</option>
+                            <option value="Asia Pacific (Sydney)">Asia Pacific (Sydney)</option>
+                            <option value="Asia Pacific (Singapore)">Asia Pacific (Singapore)</option>
+                            <option value="South America (Sao Paulo)">South America (Sao Paulo)</option>
+                            <option value="US West (Oregon)">US West (Oregon)</option>
+                            <option value="EU (Ireland)">EU (Ireland)</option>
+                            <option value="EU (Paris)">EU (Paris)</option>
+                            <option value="EU (London)">EU (London)</option>
+                            <option value="US West (N. California)">US West (N. California)</option>
+                            <option value="EU (Frankfurt)">EU (Frankfurt)</option>
+                        </select>
+                        </form>
+                    </div>
+                </div>
+
+        </div>
+<div class="row">
+
+      <div class="col-lg-12">
+<!--      <h1>IAM</h1>-->
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left" id=""></span>Route53</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="route53-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+<!--            <div class="wrapper wrapper-content animated fadeInRight">-->
+        <div class="row">
+
+            <div id="dynamic_div"></div>
+<!--            <div class="col-lg-3">-->
+<!--                <div class="widget style1 navy-bg" style="padding: 0;">-->
+<!--                    <div class="row" style="box-shadow: 10px 10px 5px #aaaaaa; margin: 0; border-radius: 10px;">-->
+<!--                        <div class="col-lg-8 text-left">-->
+<!--                            <h5>CreateHostedZone</h5>-->
+<!--                            <a data-toggle="modal" data-target="#CreateHostedZone-modal" class="small-box-footer text" style="-->
+<!--                                font-size: 12px;-->
+<!--                                letter-spacing: 1px;-->
+<!--                                font-variant: all-small-caps;-->
+<!--                                color: black;-->
+<!--                                font-weight: 600;">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-3 text-right" style="background-color: white;-->
+<!--                            color: #1ab394;-->
+<!--                            padding: 0;-->
+<!--                            float: right;-->
+<!--                            height: 50px;-->
+<!--                            text-align: center;-->
+<!--                            border: 1px solid;-->
+<!--                            border-top-left-radius: 10px;-->
+<!--                            border-bottom-left-radius: 10px;-->
+<!--                            border-top-right-radius: 5px;-->
+<!--                            border-bottom-right-radius: 5px;">-->
+<!--                            <h2 class="font-bold" id="CreateHostedZone_count"></h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-3">-->
+<!--                <div class="widget style1 navy-bg" style="padding: 0;">-->
+<!--                    <div class="row" style="box-shadow: 10px 10px 5px #aaaaaa; margin: 0; border-radius: 10px;">-->
+<!--                        <div class="col-lg-8 text-left">-->
+<!--                            <h5>ChangeResourceRecordSets</h5>-->
+<!--                            <a data-toggle="modal" data-target="#ChangeResourceRecordSets-modal" class="small-box-footer" style="-->
+<!--                                font-size: 12px;-->
+<!--                                letter-spacing: 1px;-->
+<!--                                font-variant: all-small-caps;-->
+<!--                                color: black;-->
+<!--                                font-weight: 600;">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--                        </div>-->
+<!--                        <div class="col-md-3 text-right" style="background-color: white;-->
+<!--                            color: #1ab394;-->
+<!--                            padding: 0;-->
+<!--                            float: right;-->
+<!--                            height: 50px;-->
+<!--                            text-align: center;-->
+<!--                            border: 1px solid;-->
+<!--                            border-top-left-radius: 10px;-->
+<!--                            border-bottom-left-radius: 10px;-->
+<!--                            border-top-right-radius: 5px;-->
+<!--                            border-bottom-right-radius: 5px;">-->
+<!--                            <h2 class="font-bold" id="ChangeResourceRecordSets_count"></h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-lg-3">-->
+<!--                <div class="widget style1 navy-bg">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-8 text-left">-->
+<!--                            <h4>DeleteHostedZone</h4>-->
+<!--                            <a data-target="#route53-modal" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-4 text-right">-->
+<!--                            <h2 class="font-bold">7</h2>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--            </div>-->
+         </div>
+      </div>
+
+      </div>
+
+      </div>
+
+<div class="modal inmodal" id="table-modal" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog modal-lg" style="padding-top: 150px;">
+                  <div class="modal-content animated bounceInRight">
+                     <div class="modal-header" style="padding: 0px">
+                        <button type="button" class="close" data-dismiss="modal" style="margin: 5px;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+<!--                        <h2 id="event_name"></h2>-->
+                     </div>
+                     <div class="modal-body" style="padding: 0px">
+                        <div class="ibox-content table-responsive" id="table-creation">
+<!--                           <table class="table table-striped table-bordered table-hover" id="CreateHostedZone-events-table">-->
+<!--               <thead>-->
+<!--                  <tr>-->
+<!--                     <th>SL No</th>-->
+<!--                     <th>Event Name</th>-->
+<!--                     <th>Event Time</th>-->
+<!--                      <th>User Name</th>-->
+<!--                      <th>IP Address</th>-->
+<!--                      <th>Region</th>-->
+<!--                      <th>CallerReference</th>-->
+<!--                      <th>HostedZoneName</th>-->
+<!--                      <th>ChangeInfo_Status</th>-->
+<!--                      <th>ChangeInfo_Id</th>-->
+<!--                      <th>ChangeInfo_SubmittedAt</th>-->
+<!--                      <th>Location</th>-->
+<!--                      <th>ResourceRecordSetCount</th>-->
+<!--                      <th>HostedZone_Id</th>-->
+<!--                      <th>NameServers</th>-->
+<!--                  </tr>-->
+<!--               </thead>-->
+<!--               <tbody id="CreateHostedZone-events-data" border='1'>-->
+<!--               </tbody>-->
+<!--            </table>-->
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+<div class="modal inmodal" id="ChangeResourceRecordSets-modal" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog modal-lg" style="padding-top: 150px;">
+                  <div class="modal-content animated bounceInRight">
+                     <div class="modal-header" style="padding: 0px">
+                        <button type="button" class="close" data-dismiss="modal" style="margin: 5px;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h2>ChangeResourceRecordSets</h2>
+                     </div>
+                     <div class="modal-body" style="padding: 0px">
+                        <div class="ibox-content table-responsive">
+                           <table class="table table-striped table-bordered table-hover" id="ChangeResourceRecordSets-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>HostedZoneId</th>
+                      <th>Action</th>
+                      <th>ResourceRecordSetType</th>
+                      <th>ResourceRecordSetTTL</th>
+                      <th>ResourceRecordsValue</th>
+                      <th>ResourceRecordSetName</th>
+                      <th>ChangeInfo_Status</th>
+                      <th>ChangeInfo_Id</th>
+                      <th>ChangeInfo_submittedAt</th>
+                  </tr>
+               </thead>
+               <tbody id="ChangeResourceRecordSets-events-data" border='1'>
+               </tbody>
+            </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+
+{% endblock %}
+{% block js %}
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
+    {{ block.super }} {# includes previous content in block #}
+         <!-- Chosen -->
+
+        <script src="{% static 'js/plugins/chosen/chosen.jquery.js' %}"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="{% static 'js/plugins/c3/c3.min.js' %}"></script>
+        <script src="{% static 'js/plugins/d3/d3.min.js' %}"></script>
+        <script src="{% static 'js/plugins/footable/footable.all.min.js' %}"></script>
+
+<!--        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+        <script src="{% static 'js/main/security_groups.js' %}"></script>
+        <script src="{% static 'js/main/changemoniter/change_moniter_v1.js' %}"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript">-->
+
+
+{% endblock %}

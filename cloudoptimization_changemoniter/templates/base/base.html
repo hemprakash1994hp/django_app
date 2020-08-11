@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      {% load static %}
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CloudJournee | Cloud Optimization</title>
+      {% block css %}
+         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+         <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+         <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+         <link href="{% static 'css/style.css' %}" rel="stylesheet">
+         <link href="{% static 'css/plugins/dataTables/datatables.min.css' %}" rel="stylesheet"/>
+         <link href="{% static 'css/plugins/morris/morris-0.4.3.min.css' %}" rel="stylesheet">
+         <link href="{% static 'css/plugins/sweetalert/sweetalert.css' %}" rel="stylesheet">
+         <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+         <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+      {% endblock %}
+   </head>
+   <body class="">
+      <div class="body-opacity" id="wrapper">
+
+          {% block nav %}
+
+          {% endblock %}
+
+         <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+               <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                  <div class="navbar-header">
+                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                     <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                           <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                     </form>
+                  </div>
+                  <ul class="nav navbar-top-links navbar-right">
+                     <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                           <li>
+                              <a href="mailbox.html">
+                                 <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                 </div>
+                              </a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <a href="profile.html">
+                                 <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                 </div>
+                              </a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <a href="grid_options.html">
+                                 <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                 </div>
+                              </a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <div class="text-center link-block">
+                                 <a href="notifications.html">
+                                 <strong>See All Alerts</strong>
+                                 <i class="fa fa-angle-right"></i>
+                                 </a>
+                              </div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <img alt="image" class="img-circle" src="{% static 'images/profile_small.jpg' %}" />
+                     </li>
+                     <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                        </span></span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                           <li><a href="profile.html">Profile</a></li>
+                           <li class="divider"></li>
+                           <li><a href="#">Logout</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+
+             {% block content %}
+
+             {% endblock %}
+         </div>
+         <div class="footer" style="position: fixed;">
+            <div class="pull-right">
+               <span style="color: #1ab394;"><strong>CloudJournee</strong></span>
+            </div>
+            <div>
+               <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+         </div>
+
+         <div class="modal inmodal" id="loading" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog" style="padding-top: 2px; top: 25%; left:20%;">
+                  <img src="{% static 'images/loading-green.gif'%}" width="150" height="150" />
+               </div>
+            </div>
+
+      </div>
+      </div>
+
+      {% block js %}
+         <script src="{% static 'js/bootstrap.min.js' %}"></script>
+         <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+         <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+         <!-- Custom and plugin javascript -->
+         <script src="{% static 'js/inspinia.js' %}"></script>
+         <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+         <!-- Morris -->
+         <script src="{% static 'js/plugins/dataTables/datatables.min.js' %}"></script>
+         <script src="{% static 'js/plugins/morris/raphael-2.1.0.min.js' %}"></script>
+         <script src="{% static 'js/plugins/morris/morris.js' %}"></script>
+         <script src="{% static 'js/plugins/sweetalert/sweetalert.min.js' %}"></script>
+         <!-- Main -->
+         <script src="{% static 'js/main/index.js' %}"></script>
+      {% endblock %}
+
+   </body>
+</html>

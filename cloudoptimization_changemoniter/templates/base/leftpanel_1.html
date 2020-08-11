@@ -1,0 +1,25 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span>
+                        <h1 style="color: white; font-size: 25px;">CloudJournee</h1>
+                    </span>
+                    <h2 style="font-size: 18px; padding-left: 40px; margin-top: 0px"><u><span class="text-navy" style="font-family: fantasy">Cloud</span><span style="color: white">Optimization</span></u></h2>
+                </div>
+                <div class="logo-element">
+                    CJ
+                </div>
+            </li>
+            <li>
+                <a href="{% url 'index' %}"><i class="fa fa-amazon"></i> <span class="nav-label">AWS</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse">
+                    <li><a href="{% url 'dashboard' %}">My account</a></li>
+                    <li><a href="{% url 'dashboard' %}">Prod account</a></li>
+                    <li class="btn btn-primary" style="border-radius: 0px;" data-toggle="modal" data-target="#myModal">Add New &nbsp;<i class="fa fa-plus-circle" style="font-size: medium;"></i></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

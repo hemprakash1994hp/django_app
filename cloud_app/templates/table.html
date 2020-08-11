@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+
+    {% load static %}
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/plugins/morris/morris-0.4.3.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/plugins/sweetalert/sweetalert.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+
+
+</head>
+<body>
+
+
+ <div class="ibox-content">
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>SL No</th>
+        <th>Username</th>
+        <th>Access Key</th>
+        <th>Status</th>
+        <th>Access Key Created Date</th>
+        <th>Access Key Age</th>
+        <th>Last Used Service</th>
+        <th>Event Time</th>
+        <th>Region</th>
+        <th>IP Address</th>
+        <th>Created By</th>
+        <th>Created Date</th>
+        <th>AttachedPolicies</th>
+    </tr>
+    </thead>
+    <tbody border='1'>
+
+    {% csrf_token %}
+    {% for access_keys_data in access_keys_datas %}
+    <tr id="tab">
+        <td>{{ forloop.counter }}</td>
+        <td>{{ access_keys_data.IAMUser }}</td>
+        <td>{{ access_keys_data.AccessKeyId }}</td>
+        <td>{{ access_keys_data.Status }}</td>
+        <td>{{ access_keys_data.AccessKeyIdCreatedDate }}</td>
+        <td class="AccessKeyAge">{{ access_keys_data.AccessKeyAge }}</td>
+        <td>{{ access_keys_data.LastUsedService }}</td>
+        <td>{{ access_keys_data.EventTime }}</td>
+        <td>{{ access_keys_data.AWSRegion }}</td>
+        <td><a class="ip-location" href="javascript:;">{{ access_keys_data.IPAddress }}</a></td>
+        <td>{{ access_keys_data.CreatedBy }}</td>
+        <td>{{ access_keys_data.CreatedDate }}</td>
+        <td>{{ access_keys_data.AttachedPolicies|join:"<br/>" }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+ </div>
+     </div>
+
+ <p>This is data </p>
+{% for x in data %}
+   {{ x.email_id.username }}
+{% endfor %}
+
+
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+
+    <!-- Morris -->
+    <script src="{% static 'js/plugins/morris/raphael-2.1.0.min.js' %}"></script>
+    <script src="{% static 'js/plugins/morris/morris.js' %}"></script>
+
+    <script src="{% static 'js/plugins/sweetalert/sweetalert.min.js' %}"></script>
+
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<!-- <script>-->
+<!--    $(document).ready(function() {-->
+<!--        $("td:nth-child(6)").each(function() {-->
+<!--        var cell_value = $(this).html();-->
+<!--        var value = cell_value.split(" ",1);-->
+<!--            if((value >= 30) && (value <= 50)){-->
+<!--                $(this).parent().attr('style', 'background-color:yellow');-->
+<!--    	    }-->
+<!--            else if(value >= 51){-->
+<!--                $(this).parent().attr('style', 'background-color:red');-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+
+<!--&lt;!&ndash;            if ($(this).html() >= 32) {&ndash;&gt;-->
+
+<!--&lt;!&ndash;    var cell_value = $(this).html();&ndash;&gt;-->
+<!--&lt;!&ndash;          if ((cell_value >= 0) && (cell_value <=2))&ndash;&gt;-->
+
+<!-- </script>-->
+
+  <script>
+    $(document).ready(function() {
+        $(".AccessKeyAge").each(function() {
+        var cell_value = $(this).html();
+        var value = cell_value.split(" ",1);
+            if((value >= 30) && (value <= 50)){
+                $(this).parent().attr('style', 'background-color:yellow');
+    	    }
+            else if(value >= 51){
+                $(this).parent().attr('style', 'background-color:red');
+            }
+        });
+    });
+ </script>
+
+<!--<script>-->
+<!--      var els = document.getElementsByClassName("AccessKeyAge");-->
+<!--          for (var i = 0; i < els.length; i++) {-->
+<!--                var cell = els[i];-->
+<!--&lt;!&ndash;                var value = cell.split(" ",1);&ndash;&gt;-->
+<!--&lt;!&ndash;                    if((value >= 30) && (value <= 50)){&ndash;&gt;-->
+<!--                    if (cell.textContent == 32){-->
+<!--                        cell.classList.add('style', 'background-color:yellow');-->
+<!--    	            }-->
+<!--                     else {-->
+<!--                         cell.classList.add('style', 'background-color:red');-->
+<!--&lt;!&ndash;                     $(this).parent().attr('style', 'background-color:red');&ndash;&gt;-->
+<!--                         }-->
+<!--            }-->
+
+<!--</script>-->
+
+<!-- <script>-->
+<!--        $(function () {-->
+
+<!--            $(".AccessKeyAge").each(function() {-->
+<!--                var cell_value = $(this).closest('td').html();-->
+<!--&lt;!&ndash;                var value = cell_value.split(" ",1);&ndash;&gt;-->
+<!--                    if((cell_value == 32)){-->
+<!--                         $(this).parent().attr('style', 'background-color:yellow');-->
+<!--                        }-->
+<!--                    else if(cell_value >= 51){-->
+<!--                        $(this).parent().attr('style', 'background-color:red');-->
+<!--                        }-->
+
+<!--            });-->
+<!--        });-->
+
+<!-- </script>-->
+
+
+<script type="text/javascript">
+
+<!--    document.getElementById("tab").addClass("green");-->
+<!--    element.addClass("green");-->
+
+<!--$('table tr > td:nth-child(2), table tr > th:nth-child(2)')-->
+<!--    .attr('style', 'background-color:#CCF;');-->
+
+
+
+
+<!--    $(function(){-->
+<!--        $("tr").each(function(){-->
+<!--            var col_val = $(this).find("td:eq(Access Key Age)").text();-->
+<!--                if (col_val == "32 days"){-->
+<!--                    $(this).addClass('selected');  //the selected class colors the row green//-->
+<!--                } else {-->
+<!--                    $(this).addClass('bad');-->
+<!--                }-->
+<!--        });-->
+<!--    });-->
+
+<!--    var cell = $('td');-->
+
+<!--cell.each(function() {-->
+<!--    var cell_value = $(this).html();-->
+<!--    if ((cell_value >= 0) && (cell_value <=2)) {-->
+<!--        $(this).css({'background' : '#FF0000'});-->
+<!--    } else if ((cell_value >= 3) && (cell_value <=7)) {-->
+<!--        $(this).css({'background' : '#0066CC'});-->
+<!--    } else if (cell_value >= 8) {-->
+<!--        $(this).css({'background' : '#00CC66'});-->
+<!--    }-->
+<!--});-->
+
+
+    $(function () {
+
+        $(".ip-location").click(function () {
+            //var ip_address = $(this).closest("tr").find("td").eq(8).html();
+            var ip_address = $(this).closest('td').text();
+            $.ajax({
+                type: 'GET',
+                url: '/get_ip_location',
+                data: {
+                    'ip_address': ip_address,
+                },
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                success: function (response) {
+                    var ip_tracked_location = '';
+
+                        ip_tracked_location += '<tr><td>'+1+'</td><td>'+ response["ip_tracked_data"].IPAddress + '</td><td>' + response["ip_tracked_data"].Country + '</td><td>' + response["ip_tracked_data"].IPRegion + '</td><td>' + response["ip_tracked_data"].City  + '</td><td>' + response["ip_tracked_data"].Latitude + '</td><td>' + response["ip_tracked_data"].Longitude  + '</td></tr>'
+
+                    $('#ip-tracked-location').empty();
+                    $('#ip-tracked-location').append(ip_tracked_location);
+                    $('#ip-location-modal').modal('show');
+                },
+                failure: function (response) {
+                    alert(response);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

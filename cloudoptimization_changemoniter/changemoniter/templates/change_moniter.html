@@ -1,0 +1,640 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block css %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+{% endblock %}
+
+{% block nav %}
+    {% include "base/leftpanel_2.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <h2><span><i class="fa fa-amazon">&nbsp;</i>My Account</span> / <span style="color: #1ab394">Security</span></h2>
+            </div>
+                <div class="col-sm-8">
+                    <div class="ibox-content">
+                        <label class="control-label"></label>
+                        <form method="get">
+
+                        <select name="region-name" id="regions"  style="width:350px;" tabindex="4" multiple="multiple">
+                            <option value="Canada (Central)">Canada (Central)</option>
+                            <option value="US East (N. Virginia)">US East (N. Virginia)</option>
+                            <option value="Asia Pacific (Seoul)">Asia Pacific (Seoul)</option>
+                            <option value="US East (Ohio)">US East (Ohio)</option>
+                            <option value="Asia Pacific (Tokyo)">Asia Pacific (Tokyo)</option>
+                            <option value="Asia Pacific (Mumbai)">Asia Pacific (Mumbai)</option>
+                            <option value="Asia Pacific (Sydney)">Asia Pacific (Sydney)</option>
+                            <option value="Asia Pacific (Singapore)">Asia Pacific (Singapore)</option>
+                            <option value="South America (Sao Paulo)">South America (Sao Paulo)</option>
+                            <option value="US West (Oregon)">US West (Oregon)</option>
+                            <option value="EU (Ireland)">EU (Ireland)</option>
+                            <option value="EU (Paris)">EU (Paris)</option>
+                            <option value="EU (London)">EU (London)</option>
+                            <option value="US West (N. California)">US West (N. California)</option>
+                            <option value="EU (Frankfurt)">EU (Frankfurt)</option>
+                        </select>
+                        </form>
+                    </div>
+                </div>
+
+        </div>
+<div class="row">
+
+      <div class="col-lg-12">
+      <h1>IAM</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left" id=""></span>IAM Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="iam-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="iam-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                     <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Created User</th>
+                      <th>Group Name</th>
+                      <th>Policy</th>
+                      <th>To User Name</th>
+                      <th>AccessKey Id</th>
+                      <th>Status</th>
+                  </tr>
+               </thead>
+               <tbody id="iam-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+     <div class="col-lg-12">
+      <h1>IAM-Profile</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left" id=" "></span>IAM-Profile Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="iam-profile-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="iam-profile-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>IP Address</th>
+                      <th>Created User</th>
+                      <th>To User Name</th>
+                  </tr>
+               </thead>
+               <tbody id="iam-profile-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>IAM-User-Policy</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>IAM-User-Policy Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="iam-user-policy-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="iam-user-policy-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>IP Address</th>
+                      <th>Created User</th>
+                      <th>User Name</th>
+                      <th>Policy</th>
+                  </tr>
+               </thead>
+               <tbody id="iam-user-policy-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>RDS</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>RDS Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="rds-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="rds-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>VPC</th>
+                      <th>DB InstanceIdentifier</th>
+                      <th>Engine</th>
+                      <th>Allocated Storage</th>
+                      <th>DB InstanceClass</th>
+                  </tr>
+               </thead>
+               <tbody id="rds-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>S3</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>S3 Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="s3-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="s3-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>BucketName</th>
+                  </tr>
+               </thead>
+               <tbody id="s3-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>VPC</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>VPC Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="vpc-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="vpc-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>VPC ID</th>
+                      <th>Group ID</th>
+                      <th>InternetGateWay Id</th>
+                      <th>RouteTable Id</th>
+                      <th>CIDR Block</th>
+                      <th>Gateway</th>
+                      <th>Subnet Id</th>
+                      <th>Availablity Zone</th>
+                      <th>NetworkInterface Id</th>
+                      <th>Private IP</th>
+                      <th>VPNGateway Id</th>
+                  </tr>
+               </thead>
+               <tbody id="vpc-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+     <div class="col-lg-12">
+      <h1>Lambda</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>Lambda Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="aws-lambda-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="aws-lambda-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>Function Name</th>
+                      <th>Role</th>
+                      <th>Runtime</th>
+                  </tr>
+               </thead>
+               <tbody id="aws-lambda-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+     <div class="col-lg-12">
+      <h1>CloudFormation</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>CloudFormation Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="cloudformation-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="cloudformation-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>StackName</th>
+                  </tr>
+               </thead>
+               <tbody id="cloudformation-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>CloudTrail</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>CloudTrail Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="cloudtrail-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="cloudtrail-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>Trail Name</th>
+                      <th>Is MultiRegion Trail</th>
+                  </tr>
+               </thead>
+               <tbody id="cloudtrail-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>CloudWatch</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>CloudWatch Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="cloudwatch-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="cloudwatch-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>MetricName</th>
+                      <th>Namespace</th>
+                      <th>AlaramName</th>
+                  </tr>
+               </thead>
+               <tbody id="cloudwatch-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+    <div class="col-lg-12">
+      <h1>ELB</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>ELB Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="elb-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="elb-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                     <th>User Name</th>
+                     <th>IP Address</th>
+                     <th>Region</th>
+                     <th>LoadBalancer Name</th>
+                     <th>LoadBalancer Type</th>
+                     <th>Instance Id</th>
+                     <th>UnhealthyThreshold</th>
+                     <th>HealthyThreshold</th>
+<!--                     <th>Protocol/port</th>-->
+                     <th>Subnets</th>
+                     <th>ZoneName</th>
+                     <th>SecurityGroups</th>
+                     <th>Protocol</th>
+                     <th>Port</th>
+                     <th>LoadBalancerPort</th>
+                     <th>InstanceProtocol</th>
+                     <th>InstancePort</th>
+                     <th>Scheme</th>
+                      <th>CrossZoneLoadBalancingEnabled</th>
+                      <th>ConnectionDrainingEnabled</th>
+                      <th>ConnectionDrainingTimeout</th>
+                      <th>TargetGroupName</th>
+                      <th>Type</th>
+                      <th>TargetType</th>
+                      <th>Target</th>
+                      <th>Interval</th>
+                      <th>Timeout</th>
+                     <th>DNSName</th>
+                     <th>SSLCertificateId</th>
+                     <th>VpcId</th>
+                     <th>IpAddressType</th>
+                     <th>HealthCheckEnabled</th>
+                     <th>HttpCode</th>
+                     <th>HealthCheckPort</th>
+                     <th>HealthyThresholdCount</th>
+                     <th>HealthCheckProtocol</th>
+                     <th>HealthCheckIntervalSeconds</th>
+                     <th>HealthCheckTimeoutSeconds</th>
+                     <th>HealthCheckPath</th>
+                     <th>UnhealthyThresholdCount</th>
+                  </tr>
+               </thead>
+               <tbody id="elb-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+    <div class="col-lg-12">
+      <h1>Route53</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>Route53 Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="route53-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="route53-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>CallerReference</th>
+                      <th>HostedZoneName</th>
+                      <th>ChangeInfo_Status</th>
+                      <th>ChangeInfo_Id</th>
+                      <th>ChangeInfo_SubmittedAt</th>
+                      <th>Location</th>
+                      <th>ResourceRecordSetCount</th>
+                      <th>HostedZone_Id</th>
+                      <th>NameServers</th>
+                      <th>Action</th>
+                      <th>ResourceRecordSetType</th>
+                      <th>ResourceRecordSetTTL</th>
+                      <th>ResourceRecordsValue</th>
+                      <th>ResourceRecordSetName</th>
+                  </tr>
+               </thead>
+               <tbody id="route53-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+    <div class="col-lg-12">
+      <h1>SES</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>Route53 Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="ses-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="ses-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>Name</th>
+                      <th>Enabled</th>
+                      <th>ScanEnabled</th>
+                      <th>TlsPolicy</th>
+                      <th>TopicArn</th>
+                      <th>Encoding</th>
+                      <th>Recipients</th>
+                      <th>RuleSetName</th>
+                      <th>Identity</th>
+                      <th>RuleName</th>
+                      <th>policy</th>
+                      <th>PolicyName</th>
+                      <th>Domain</th>
+                      <th>DkimTokens</th>
+                      <th>DisableEmailNotifications</th>
+                      <th>VerificationToken</th>
+                      <th>EmailAddress</th>
+                  </tr>
+               </thead>
+               <tbody id="ses-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+    <div class="col-lg-12">
+      <h1>SAMPLE</h1>
+      <p></p>
+      <div class="ibox float-e-margins" style="margin-bottom: 5px">
+         <div class="ibox-title panel panel-primary">
+            <h5><span class="badge badge-info pull-left"></span>CloudWatch Events</h5>
+            <div class="ibox-tools">
+               <a class="collapse-link">
+               <i class="fa fa-chevron-up" id="demo-events"></i>
+               </a>
+            </div>
+         </div>
+         <div class="ibox-content" style="overflow-x:auto;display: none;">
+            <!--<table class="footable table table-stripped toggle-arrow-tiny">-->
+            <table class="table table-striped table-bordered table-hover" id="demo-events-table">
+               <thead>
+                  <tr>
+                     <th>SL No</th>
+                     <th>Event Name</th>
+                     <th>Event Time</th>
+                      <th>User Name</th>
+                      <th>IP Address</th>
+                      <th>Region</th>
+                      <th>MetricName</th>
+                      <th>Namespace</th>
+                      <th>AlaramName</th>
+                  </tr>
+               </thead>
+               <tbody id="demo-events-data" border='1'>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+      </div>
+
+
+      </div>
+
+
+
+{% endblock %}
+{% block js %}
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
+    {{ block.super }} {# includes previous content in block #}
+         <!-- Chosen -->
+
+        <script src="{% static 'js/plugins/chosen/chosen.jquery.js' %}"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="{% static 'js/plugins/c3/c3.min.js' %}"></script>
+        <script src="{% static 'js/plugins/d3/d3.min.js' %}"></script>
+INDX( 	 QÆB            (     è                            »5     x b     º5     (x_6×‡Õ¬XneÕ7”neÕ(x_6×‡Õ8       6                e n t r y _ p o i n t s . t x t       ¼5     h T     º5     (x_6×‡Õ-•§neÕ7¼§neÕ(x_6×‡Õ                      	 I N S T A L L E R     ½5     ` P     º5     (x_6×‡Õ%QUneÕAÓ”neÕ(x_6×‡Õ                      L I C E N S E ¾5     h R     º5     tÚa6×‡ÕYbVneÕko•neÕtÚa6×‡Õ       þ               M E T A D A T A       ¿5     ` N     º5     tÚa6×‡

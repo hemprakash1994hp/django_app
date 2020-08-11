@@ -1,0 +1,39 @@
+.loading-opacity{
+  opacity: 0.6;
+  filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.d-table-info{
+  background-color:#AED581 !important;
+
+}
+
+.d-table-warning{
+  background-color:#FFF176 !important;
+
+}
+
+.d-table-danger{
+  background-color:#FFCDD2 !important;
+
+}
+
+.div-style{
+    background-color: white;
+    color: #1ab394;
+    padding: 0;
+    float: right;
+    height: 60px;
+    text-align: center;
+    border: 1px solid;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.text {
+color: black;
+}
+
+.text:hover {
+color: white;
+}

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CloudJournee | Cloud Optimization</title>
+
+    {% load static %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/animate.css" rel="stylesheet' %}">
+    <link href="{% static 'css/style.css" rel="stylesheet' %}">
+
+   <!-- <link href="{% static 'css/plugins/morris/morris-0.4.3.min.css' %}" rel="stylesheet">-->
+
+    <link href="{% static 'css/plugins/c3/c3.min.css" rel="stylesheet' %}">
+
+
+</head>
+
+<body class="">
+
+    <div id="wrapper">
+
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> <span>
+                            <h1 style="color: white; font-size: 25px;">CloudJournee</h1>
+                             </span>
+                             <h2 style="font-size: 18px; padding-left: 40px; margin-top: 0px"><u><span class="text-navy" style="font-family: fantasy">Cloud</span><span style="color: white">Optimization</span></u></h2>
+                    </div>
+                    <div class="logo-element">
+                        CJ
+                    </div>
+                </li>
+                <li class="special_link">
+                    <a href="index.html"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
+                </li>
+                <li>
+                <a href="/dashboard"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboard</span></a>
+            </li>
+                <li class="active">
+                <a href="/aws_accounts"><i class="fa fa-list-alt"></i> <span class="nav-label">Summary</span></a>
+            </li>
+            <li>
+                <a href="/security"><i class="fa fa-shield"></i> <span class="nav-label">Security</span></a>
+            </li>
+            <li>
+                <a href="index.html"><i class="fa fa-money"></i> <span class="nav-label">Cost</span></a>
+            </li>
+            <li>
+                <a href="index.html"><i class="fa fa-refresh"></i> <span class="nav-label">Change Monitor</span></a>
+            </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="profile.html">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+<li>
+    
+<img alt="image" class="img-circle" src="images/profile_small.jpg" />
+</li>
+                <li>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
+                             </span></span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                </li>
+            </ul>
+
+        </nav>
+        </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-sm-4">
+                    <h2><span><i class="fa fa-amazon">&nbsp</i>My Account</span> / <span style="color: #1ab394">Summary</span></h2>
+                    
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+            <div class="row">
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5">-->
+                                <button type="button" class="pull-right text-info" style="font-family:cursive; border: none; background-color: white" data-toggle="modal" data-target="#myModal5"><u>more details..</u></button>
+                                <h5><u>EC2</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Running EC2 - <span>2</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Stopped EC2 - <span>5</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_ec2"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>EBS</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Attached Volume - <span>12</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Unattached Volume - <span>3</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_ebs"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>S3</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Private S3 bucket - <span>17</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Public S3 bucket - <span>5</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_s3"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>IAM</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Guest users - <span>18</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Admin users - <span>3</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_iam"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="row">
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>Snapshots</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Total Snapshots - <span>13</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Used by AMI - <span>5</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_snapshots"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>AMI</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Total AMI - <span>12</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Used AMI - <span>3</span></medium>
+                            </div>
+                                <div class="col-lg-5 pull-right" style="padding: 0px">
+                                    <div style="width: 120px; height: 70px" id="gauge_ami"></div>
+                                    </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>RDS</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 20px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Running instance - <span>17</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Stopped instance - <span>5</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_rds"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <span class="pull-right text-info" style="font-family:cursive;"><u>more details..</u></span>
+                                <h5><u>ELB</u></h5>
+                            </div>
+                            <div class="row ibox-content" style="margin: 0px">
+                            <div class="col-lg-7" style="padding-top: 0px; padding-left: 0px; padding-right: 0px;">
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #1ab394;">&nbsp</i></span>Classic ELB - <span>2</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Application ELB - <span>1</span></medium>
+                                <br>
+                                <medium style="font-family: cursive;"><span><i class="fa fa-square" style="color: #e0e0e0;">&nbsp</i></span>Network ELB - <span>3</span></medium>
+                            </div>
+                            <div class="col-lg-5 pull-right" style="padding: 0px">
+                                <div style="width: 120px; height: 70px" id="gauge_elb"></div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+        </div>
+        <div class="modal inmodal fade" id="myModal5" tabindex="-1" role="dialog"  aria-hidden="true">
+                                <div class="modal-dialog" style="width: 1100px">
+                                    <div class="modal-content">
+                                       
+        <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+        <div class="ibox-title">
+            <h5>EC2 instance details</h5>
+             <div class="ibox-tools">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-sm-3 pull-right">
+                    <div class="input-group">
+                        <input type="text" placeholder="Search" class="input-sm form-control"><span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+
+                        <th>S.no</th>
+                        <th>Name </th>
+                        <th>Instance ID </th>
+                        <th>Instance type </th>
+                        <th>AZ </th>
+                        <th>Region </th>
+                        <th>Security Groups</th>
+                        <th>Date</th>
+                        <th>Instance State</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ec2_1</td>
+                        <td>i-dffgvhbjnt99</td>
+                        <td>t2.micro</td>
+                        <td>us-west-2</td>
+                        <td>Oregon</td>
+                        <td>mysg</td>
+                        <td data-toggle="modal" data-target="#attached-resources-model">Jan 14, 2019</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                       <td>dev_sample</td>
+                        <td>i-dffgyy6668hhg</td>
+                        <td>t2.micro</td>
+                        <td>us-west-2</td>
+                        <td>Oregon</td>
+                        <td>mysg</td>
+                        <td>Jan 14, 2019</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>ec2_1</td>
+                        <td>i-dffgvhbjnt99</td>
+                        <td>t2.micro</td>
+                        <td>us-west-2</td>
+                        <td>Oregon</td>
+                        <td>mysg</td>
+                        <td>Jan 14, 2019</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>ec2_1</td>
+                        <td>i-dffgvhbjnt99</td>
+                        <td>t2.micro</td>
+                        <td>us-west-2</td>
+                        <td>Oregon</td>
+                        <td>mysg</td>
+                        <td>Jan 14, 2019</td>
+                        <td><a href="#"><i class="fa fa-check text-navy"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>ec2_1</td>
+                        <td>i-dffgvhbjnt99</td>
+                        <td>t2.micro</td>
+                        <td>us-west-2</td>
+                        <td>Oregon</td>
+                        <td>mysg</td>
+                        <td>Jan 14, 2019</td>
+                        <td><a href="#"><i class="fa fa-times text-warning"></i></a></td>
+                    </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        </div>
+        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                    <div class="modal inmodal" id="attached-resources-model" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" style="padding-top: 150px;">
+                                <div class="modal-content animated bounceInRight">
+                                        <div class="modal-header" style="padding: 0px">
+                                            <button type="button" class="close" data-dismiss="modal" style="margin: 5px;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h2>Attached Resources</h2>
+                                        </div>
+                                        <div class="modal-body" style="padding: 0px">
+                                                  <div class="ibox-content">
+<table class="table table-stripped toggle-arrow-tiny">
+                                <thead>
+                                <tr>
+
+                                    <th>EC2 Name</th>
+                                    <th>EC2 ID</th>
+                                    <th>VPC ID</th>
+                                    <th>Region</th>
+                                    <th>Availability zone</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>test</td>
+                                    <td>i-dsgfghjkl16546461</td>
+                                    <td>vpc-9e9946f8</td>
+                                    <td>us-west-2</td>
+                                    <td>us-west-2a</td>
+                                </tr>
+                                <tr>
+                                    <td>prod</td>
+                                    <td>i-fgccfghvcf56787gg</td>
+                                    <td>vpc-9e9946f8</td>
+                                    <td>us-west-2</td>
+                                    <td>us-west-2a</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+       
+</div>
+            </div>
+            <div class="footer" style="position: fixed;">
+                <div class="pull-right">
+                    <span style="color: #1ab394;"><strong>CloudJournee</strong></span>
+                </div>
+                <div>
+                    <strong>Copyright</strong> Example Company &copy; 2014-2017
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    <!-- Mainly scripts -->
+    <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="{% static 'js/inspinia.js' %}"></script>
+    <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+
+
+    <script src="{% static 'js/plugins/c3/c3.min.js' %}"></script>
+    <script src="{% static 'js/plugins/d3/d3.min.js' %}"></script>
+
+ <script>
+
+        $(document).ready(function () {
+            c3.generate({
+                bindto: '#gauge_ec2',
+                data:{
+                    columns: [
+                        ['running', 2]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                            },
+                            },
+                                min: 1,
+                                max: 7
+                        },
+                        color:{
+                            pattern: ['#1ab394', '#BABABA']
+                            }
+                            });
+            c3.generate({
+                bindto: '#gauge_ebs',
+                data:{
+                    columns: [
+                        ['Attached', 12]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 15
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA']
+                                }
+                                });
+            c3.generate({
+                bindto: '#gauge_s3',
+                data:{
+                    columns: [
+                        ['Private', 17]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 22
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA']
+                                }
+                                });
+            c3.generate({
+                bindto: '#gauge_iam',
+                data:{
+                    columns: [
+                        ['Guest users', 18]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 21
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA']
+                                }
+                                });
+            c3.generate({
+                bindto: '#gauge_snapshots',
+                data:{
+                    columns: [
+                        ['Used by AMI', 5]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 13
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA']
+                                }
+                                });
+            c3.generate({
+                bindto: '#gauge_ami',
+                data:{
+                    columns: [
+                        ['Used', 3]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 15
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA']
+                                }
+                                });
+            c3.generate({
+                bindto: '#gauge_rds',
+                data:{
+                    columns: [
+                        ['Running DB instance', 17]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 22
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA']
+                                }
+                                });
+            c3.generate({
+                bindto: '#gauge_elb',
+                data:{
+                    columns: [
+                        ['Classic ELB', 2]
+                    ],
+                    type: 'gauge'
+                    },
+                    gauge: {
+                        label:{
+                            format: function(value, ratio)
+                            {
+                                return value;
+                                },
+                                },
+                                min: 1,
+                                max: 6
+                            },
+                            color:{
+                                pattern: ['#1ab394', '#BABABA', '#33D5FF']
+                                }
+                                });
+            });
+        </script>
+ 
+</body>
+</html>

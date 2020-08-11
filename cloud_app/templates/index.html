@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>CloudJournee | Cloud Optimization</title>
+      {% load static %}
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+      <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+      <link href="{% static 'css/plugins/morris/morris-0.4.3.min.css' %}" rel="stylesheet">
+      <link href="{% static 'css/plugins/sweetalert/sweetalert.css' %}" rel="stylesheet">
+      <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+   </head>
+   <body class="">
+      <div id="wrapper">
+         <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+               <ul class="nav metismenu" id="side-menu">
+                  <li class="nav-header">
+                     <div class="dropdown profile-element">
+                        <span>
+                           <h1 style="color: white; font-size: 25px;">CloudJournee</h1>
+                        </span>
+                        <h2 style="font-size: 18px; padding-left: 40px; margin-top: 0px"><u><span class="text-navy" style="font-family: fantasy">Cloud</span><span style="color: white">Optimization</span></u></h2>
+                     </div>
+                     <div class="logo-element">
+                        CJ
+                     </div>
+                  </li>
+                  <li>
+                     <a href="index.html"><i class="fa fa-amazon"></i> <span class="nav-label">AWS</span> <span class="fa arrow"></span></a>
+                     <ul class="nav nav-second-level collapse">
+                        <li><a href="/dashboard">My account</a></li>
+                        <li><a href="dashboard.html">Prod account</a></li>
+                        <li class="btn btn-primary" style="border-radius: 0px;" data-toggle="modal" data-target="#myModal">Add New &nbsp;<i class="fa fa-plus-circle" style="font-size: medium;"></i></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+         <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+               <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                  <div class="navbar-header">
+                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                     <form role="search" class="navbar-form-custom" action="search_results.html">
+                        <div class="form-group">
+                           <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                        </div>
+                     </form>
+                  </div>
+                  <ul class="nav navbar-top-links navbar-right">
+                     <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                           <li>
+                              <a href="mailbox.html">
+                                 <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                 </div>
+                              </a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <a href="profile.html">
+                                 <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                 </div>
+                              </a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <a href="grid_options.html">
+                                 <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                 </div>
+                              </a>
+                           </li>
+                           <li class="divider"></li>
+                           <li>
+                              <div class="text-center link-block">
+                                 <a href="notifications.html">
+                                 <strong>See All Alerts</strong>
+                                 <i class="fa fa-angle-right"></i>
+                                 </a>
+                              </div>
+                           </li>
+                        </ul>
+                     </li>
+                     <li>
+                        <img alt="image" class="img-circle" src="{% static 'images/profile_small.jpg'%}" />
+                     </li>
+                     <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{ user }}</strong>
+                        </span></span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                           <li><a href="profile.html">Profile</a></li>
+                           <li class="divider"></li>
+                           <li><a href="/logout">Logout</a></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+               <div class="col-sm-4">
+                  <h2>Accounts</h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-lg-6">
+                  <div class="widget-head-color-box navy-bg p-sm shadow-depth-3">
+                     <div >
+                        <h1 class="m-xs" style="font-size: -webkit-xxx-large;"><i class="fa fa-amazon"></i>&nbsp; <span style="font-size: xx-large;"><u><a href="aws_accounts.html" style="color: white"> My account</a></u></span></h1>
+                     </div>
+                  </div>
+                  <div class="widget-text-box shadow-depth-3" style="border-radius: 0px 0px 5px 5px;">
+                     <h4 class="media-heading" style="font-family:cursive;">Account id: <span style="font-family:none; color: #1ab394;">2564864523</span><span style="font-family:cursive;">&nbsp; &nbsp; &nbsp; &nbsp; Last access: <span style="font-family:none; color: #1ab394;">20/01/2019</span></span></h4>
+                     <div class="text-right">
+                        <a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i> Edit </a>
+                        <a class="btn btn-xs btn-danger demo4"><i class="fa fa-trash"></i> Delete</a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-6">
+                  <div class="widget-head-color-box navy-bg p-sm shadow-depth-3">
+                     <div >
+                        <h1 class="m-xs" style="font-size: -webkit-xxx-large;"><i class="fa fa-amazon"></i>&nbsp; <span style="font-size: xx-large;"><u>prod account</u></span></h1>
+                     </div>
+                  </div>
+                  <div class="widget-text-box shadow-depth-3" style="border-radius: 0px 0px 5px 5px;">
+                     <h4 class="media-heading" style="font-family:cursive;">Account id: <span style="font-family:none; color: #1ab394;">3664864652</span><span style="font-family:cursive;">&nbsp; &nbsp; &nbsp; &nbsp; Last access: <span style="font-family:none; color: #1ab394;">12/01/2019</span></span> </h4>
+                     <div class="text-right">
+                        <a class="btn btn-xs btn-primary"><i class="fa fa-edit"></i> Edit </a>
+                        <a class="btn btn-xs btn-danger demo4"><i class="fa fa-trash"></i> Delete</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content animated bounceInRight">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                     <i class="fa fa-amazon modal-icon"></i>
+                  </div>
+                  <div class="modal-body">
+                     <div class="ibox-content">
+                        <form method="post" role="form" class="form-horizontal" action="">
+                           {% csrf_token %}
+                           <div class="form-group">
+                              <label class="col-lg-4 control-label">Account Name:</label>
+                              <div class="col-lg-7">
+                                 {{ form.accountname }}
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-lg-4 control-label">Account Number:</label>
+                              <div class="col-lg-7">
+                                 {{ form.accountnumber }}
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-lg-4 control-label">Access Key:</label>
+                              <div class="col-lg-7">
+                                 {{ form.accesskey }}
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-lg-4 control-label">Secret Key:</label>
+                              <div class="col-lg-7">
+                                 {{ form.skey }}
+                              </div>
+                           </div>
+                           <div class="modal-footer">
+                              <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                              <button type="submit" class="btn btn-primary demo2">Add Account</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content animated bounceInRight">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                     <h1>Change AWS keys(<span style="font-family:cursive; color: #1ab394;">My account</span>)</h1>
+                  </div>
+                  <div class="modal-body">
+                     <div class="ibox-content">
+                        <form class="form-horizontal">
+                           <div class="form-group">
+                              <label class="col-lg-4 control-label">Access Key:</label>
+                              <div class="col-lg-7"><input type="text" placeholder="" value="{{ access_key }}" style="border: none; border-bottom: 1.5px solid #188cb8" class="form-control">
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-lg-4 control-label">Secret Key:</label>
+                              <div class="col-lg-7"><input type="text" placeholder="" value="{{ aws_secret_key }}" style="border: none; border-bottom: 1.5px solid #188cb8" class="form-control">
+                              </div>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-white" data-dismiss="modal">Cancel</button>
+                     <button type="button" class="btn btn-primary demo3">Change Keys</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="footer" style="position: fixed;">
+            <div class="pull-right">
+               <span style="color: #1ab394;"><strong>CloudJournee</strong></span>
+            </div>
+            <div>
+               <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+         </div>
+      </div>
+      </div>
+      <!-- Mainly scripts -->
+      <script src="{% static 'js/jquery-3.1.1.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+      <script src="{% static 'js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+      <!-- Custom and plugin javascript -->
+      <script src="{% static 'js/inspinia.js' %}"></script>
+      <script src="{% static 'js/plugins/pace/pace.min.js' %}"></script>
+      <!-- Morris -->
+      <script src="{% static 'js/plugins/morris/raphael-2.1.0.min.js' %}"></script>
+      <script src="{% static 'js/plugins/morris/morris.js' %}"></script>
+      <script src="{% static 'js/plugins/sweetalert/sweetalert.min.js' %}"></script>
+      <!-- Morris demo data-->
+      <!--<script src="js/plugins/morris/morris-demo.js"></script>-->
+      <!--<script src="js/plugins/chartJs/Chart.min.js"></script>
+         <script src="js/demo/chartjs-demo.js"></script>-->
+      <script type="text/javascript">
+         $(document).ready(function () {
+              $('.demo2').click(function(){
+             swal({
+                 title: "Successfuly AWS Account Added",
+                 text: "",
+                 type: "success"
+             });
+         });
+              $('.demo3').click(function(){
+             swal({
+                 title: "Successfuly AWS Keys changed",
+                 text: "",
+                 type: "success"
+             });
+         });
+              $('.demo4').click(function () {
+             swal({
+                         title: "Are you sure?",
+                         text: "Your AWS account will permanently removed from CloudOptimization",
+                         type: "warning",
+                         showCancelButton: true,
+                         confirmButtonColor: "#DD6B55",
+                         confirmButtonText: "Yes, delete",
+                         cancelButtonText: "No, cancel",
+                         closeOnConfirm: false,
+                         closeOnCancel: false },
+                     function (isConfirm) {
+                         if (isConfirm) {
+                             swal("Deleted!", "Your AWS account has been deleted.", "success");
+                         } else {
+                             swal("Cancelled", "Your AWS account is safe :)", "error");
+                         }
+                     });
+         });
+
+         })
+      </script>
+   </body>
+</html>

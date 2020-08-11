@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% csrf_token %}
+<p>This is data </p>
+{% for x in data %}
+   {{ x.email_id.username }}
+{% endfor %}
+
+<p>Access Key: {{ access_key }}</p>
+<p>Secret Key: {{ aws_secret_key }}</p>
+
+
+</body>
+</html>
